@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1f1f1f;
+  color: #e5e7eb;
+  /*background: #131313;
+  color: #e5e7eb; */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, sans-serif;
+}
+button {
+  cursor: pointer;
+  border: 0;
+}
+a {
+  color: #a5b4fc;
+}
+.rounded {
+  border-radius: 12px;
+}
+.bg {
+  background: #111218;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #3b82f6;
+  color: white;
+}
+.btn:disabled {
+  opacity: 0.5;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.card {
+  background: #111218;
+  border: 1px solid #1f2937;
+  padding: 16px;
+  border-radius: 12px;
+}
+.wave {
+  background: #0f1016;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.legend {
+  color: #9ca3af;
+  font-size: 12px;
+}
+h1,
+h2 {
+  margin: 0 0 12px;
+}
+label {
+  display: block;
+}
+input[type='number'],
+input[type='text'] {
+  background: #1f2430;
+  border-radius: 10px;
+  padding: 8px 10px;
+  border: 1px solid #2b3343;
+  color: #e5e7eb;
+  width: 100%;
+}
+select {
+  background: #1f2430;
+  border-radius: 10px;
+  padding: 8px 10px;
+  border: 1px solid #2b3343;
+  color: #e5e7eb;
+}
+
+
+.rabbit-lyrics  {
+    background-color: 'red';
+}
