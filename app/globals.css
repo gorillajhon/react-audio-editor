@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 
+@theme {
+  --color-primary: #fc532e;
+}
+
+
 * {
   box-sizing: border-box;
 }
@@ -48,8 +53,8 @@ a {
   align-items: center;
 }
 .card {
-  background: #111218;
-  border: 1px solid #1f2937;
+  background: black;
+  border: 1px solid rgb(117, 117, 117);
   padding: 16px;
   border-radius: 12px;
 }
