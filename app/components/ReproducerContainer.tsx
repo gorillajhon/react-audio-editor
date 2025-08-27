@@ -9,6 +9,8 @@ import LyricsModal from "./LyricsModal";
 import LyricsText from "./LyricsText";
 import AudioDropzone from "./AudioDropzone";
 import Button from "./Button";
+import LyricClipper from "./LyricClipper";
+import DivRecorder from "./DivRecorder";
 
 const ReproducerContainer = () => {
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
@@ -138,11 +140,21 @@ const ReproducerContainer = () => {
       )}
 
       {/* Lyrics renderer: binds to the SAME audio via mediaRef */}
-      {lyricText && (
+      {/** Oldest one */}
+      {/*lyricText && (
         <LyricsText
           lyrics={lyricText}
           mediaRef={audioRef}
           key={lyrcisTextKey}
+        />
+      )*/}
+
+      {lyricText && (
+        <DivRecorder
+          lrcText={lyricText}
+          audioRef={audioRef}
+          startTime={0}
+          durationSec={20}
         />
       )}
     </>
