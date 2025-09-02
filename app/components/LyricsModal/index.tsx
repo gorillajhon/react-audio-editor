@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useEffect, useRef, useState } from "react";
-import Button from "./Button";
+import Button from "@components/Button";
 
 // just for testing purposes
 const initLyrics = `

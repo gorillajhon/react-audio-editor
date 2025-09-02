@@ -1,0 +1,22 @@
+/* Wavesurfer v7 Regions puts the label inside the region element */
+.ws-region .ws-region-label {
+  position: absolute;
+  top: -28px;           
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0,0,0,.85);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .12s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+
+.ws-region:hover .ws-region-label {
+  opacity: 1;          
+}

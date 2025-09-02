@@ -20,7 +20,9 @@
       "node"
     ],
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@components/*": ["app/components/*"]
+    },
     "incremental": true,
     "plugins": [
       {

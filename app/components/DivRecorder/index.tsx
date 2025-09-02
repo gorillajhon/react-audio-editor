@@ -1,54 +1,6 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-
-// ---------- LRC parsing ----------
-function parseLRC(lrcText: string) {
-  const rows = lrcText
-    .split(/\r?\n/)
-    .map((raw) => {
-      const m = raw.match(/^\[(\d{2}):(\d{2})(?:\.(\d{2}))?\]\s*(.*)$/);
-      if (!m) return null;
-      const mm = parseInt(m[1], 10);
-      const ss = parseInt(m[2], 10);
-      const cs = m[3] ? parseInt(m[3], 10) : 0;
-      const t = mm * 60 + ss + cs / 100;
-      return { time: t, text: m[4] ?? "" };
-    })
-    .filter(Boolean) as { time: number; text: string }[];
-  for (let i = 0; i < rows.length; i++) {
-    (rows[i] as any).endTime = rows[i + 1]?.time ?? Number.POSITIVE_INFINITY;
-  }
-  return rows as Array<{ time: number; endTime: number; text: string }>;
-}
-
-// ---------- helpers ----------
-const pickMime = () => {
-  const candidates = [
-    "video/mp4;codecs=avc1.42E01E,mp4a.40.2", // Safari
-    "video/mp4",
-    "video/webm;codecs=vp9,opus", // Chromium
-    "video/webm;codecs=vp8,opus",
-    "video/webm",
-  ];
-  for (const t of candidates) {
-    if (
-      typeof MediaRecorder !== "undefined" &&
-      MediaRecorder.isTypeSupported(t)
-    )
-      return t;
-  }
-  return "";
-};
-const extFromMime = (m: string) => (m.includes("mp4") ? "mp4" : "webm");
-
-async function waitFonts() {
-  const fonts: any = (document as any).fonts;
-  if (fonts?.ready) {
-    try {
-      await fonts.ready;
-    } catch {}
-  }
-}
+import { parseLRC, pickMime, waitFonts } from "./utils";
 
 interface Props {
   lrcText: string;
@@ -235,8 +187,7 @@ const CanvasLyricRecorder: React.FC<Props> = ({
     recorderRef.current = rec;
 
     rec.ondataavailable = (e) => e.data.size && chunksRef.current.push(e.data);
-    rec.onerror = (e) => {
-      console.error("MediaRecorder error:", (e as any).error || e);
+    rec.onerror = () => {
       try {
         if (rec.state === "recording") rec.stop();
       } catch {}
@@ -314,3 +265,6 @@ const CanvasLyricRecorder: React.FC<Props> = ({
 };
 
 export default CanvasLyricRecorder;
+function extFromMime(finalMime: string) {
+  throw new Error("Function not implemented.");
+}
