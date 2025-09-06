@@ -5,8 +5,8 @@
 
 ## Dev
 ```bash
-npm i
-npm run dev
+yarn install
+yarn dev
 ```
 
 ## Render Notes (Vercel)
